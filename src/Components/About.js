@@ -45,7 +45,7 @@ export default function About(props) {
                         </h2>
                         <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
-                            This whole web application is build using <strong>'React js'.</strong> 
+                            This whole web application is build using <strong>'React js'</strong> and <strong>Boostrap5</strong>
                             </div>
                         </div>
                     </div>
