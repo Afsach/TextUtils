@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './Components/Navbar';
 import PropTypes from 'prop-types';
 import Textform from './Components/Textform';
@@ -24,7 +24,7 @@ const App = () => {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark")
-      document.body.style.backgroundColor = "#151f28";
+      document.body.style.backgroundColor = "#03203a";
       setTheme("Enable Lightmode")
       showAlert("Dark Mode has Enabled", "success")
     }
@@ -38,7 +38,6 @@ const App = () => {
 
   return (
     <>
-      <Router>
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} theme={theme} />
         <Alert alertMessage={alertMessage} />
         <Routes>
@@ -49,7 +48,6 @@ const App = () => {
           } />
           <Route exact path="/about" element={<About mode={mode}/>} />
         </Routes>
-      </Router>
     </>
   )
 }

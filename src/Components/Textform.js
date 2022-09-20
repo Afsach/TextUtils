@@ -16,6 +16,17 @@ export default function Textform(props) {
         props.showAlert("Text has been changed to lowercase", "success");
     }
 
+    const handleCapitalClick = () => {
+        const normalText = text.toLowerCase().split(/\s+/);
+        for (let i = 0; i < normalText.length; i++) {
+            normalText[i] = normalText[i].charAt(0).toUpperCase() + normalText[i].slice(1);
+            console.log(normalText[i]);
+        }
+        const CaptalizedText = normalText.join(" ");
+        setText(CaptalizedText);
+        props.showAlert("Text has been changed to capital case", "success");
+    }
+
     const handleCopy = () => {
         // 1st way
         // let copyText = document.querySelector("textarea")
@@ -39,7 +50,7 @@ export default function Textform(props) {
     }
 
     const handleExtraSpaces = () => {
-        let newText = text.split(/[ ]+/);
+        let newText = text.split(/\s+/);
         setText(newText.join(" "));
         props.showAlert("Extra Spaces removed", "success");
     }
@@ -51,13 +62,14 @@ export default function Textform(props) {
 
     return (
         <>
-            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black", marginTop : "3.7rem" }}>
                 <h2>{props.heading}</h2>
                 <div className="mt-3">
-                    <textarea className="form-control" style={{ backgroundColor: props.mode === "dark" ? "#29263a" : "white", color: props.mode === "dark" ? "white" : "black" }} value={text} onChange={handlOnChange} id="exampleFormControlTextarea1" rows="7"></textarea>
+                    <textarea className="form-control" style={{ backgroundColor: props.mode === "dark" ? "#29263a" : "white", color: props.mode === "dark" ? "white" : "black" }} value={text} onChange={handlOnChange} id="exampleFormControlTextarea1" rows="9"></textarea>
                 </div>
                 <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleUpperClick} >Uppercase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleLowerClick} >Lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleCapitalClick} >Capital</button>
                 <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleSpeak} >Speak</button>
                 <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleCopy} >Copy</button>
                 <button disabled={text.length === 0} className="btn btn-primary mt-3 me-2" onClick={handleExtraSpaces} >Remove Extra Spaces</button>
@@ -65,8 +77,8 @@ export default function Textform(props) {
             </div>
             <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" }}>
                 <h4>Youe text summary is here </h4>
-                <p>{text.split(/\s+/).filter((element) => { return element.length !== 0}).length} words and {text.length} Characters</p>
-                <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0}).length} Minutes to read</p>
+                <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} Characters</p>
+                <p>{0.008 * text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} Minutes to read</p>
                 <h3>Preview</h3>
                 <p>{text.length > 0 ? text : "Nothing to preview"}</p>
             </div>
