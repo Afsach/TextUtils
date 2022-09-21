@@ -3,14 +3,12 @@ import React, { useState } from 'react'
 export default function Textform(props) {
     const [text, setText] = useState("");
     const handleUpperClick = () => {
-        // console.log("Upper case clicked" + text); 
         let upperCase = text.toUpperCase();
         setText(upperCase);
         props.showAlert("Text has been changed to upperscase", "success");
     }
 
     const handleLowerClick = () => {
-        // console.log("Upper case clicked" + text); 
         let lowerCase = text.toLowerCase();
         setText(lowerCase);
         props.showAlert("Text has been changed to lowercase", "success");
@@ -28,11 +26,6 @@ export default function Textform(props) {
     }
 
     const handleCopy = () => {
-        // 1st way
-        // let copyText = document.querySelector("textarea")
-        // navigator.clipboard.writeText(copyText.value);
-
-        // 2nd way 
         navigator.clipboard.writeText(text);
         props.showAlert("Text has been copied to clipboard", "success");
     }
@@ -56,7 +49,6 @@ export default function Textform(props) {
     }
 
     const handlOnChange = (event) => {
-        // console.log("handlOnChange clicked");
         setText(event.target.value);
     }
 

@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './Components/Navbar';
-import PropTypes from 'prop-types';
 import Textform from './Components/Textform';
 import Alert from './Components/Alert';
 import About from './Components/About';
