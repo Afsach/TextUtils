@@ -9,7 +9,7 @@ export default function About(props) {
 
     return (
         <>
-            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black", marginTop : "3.7rem" }}>
                 <div className="accordion container mt-4" id="accordionExample">
                     <h2 className="my-4">About TextUtils</h2>
                     <div className="accordion-item" style={myStyle}>
